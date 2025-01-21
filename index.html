@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bestellapp</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="styles/assets.css" />
-    <link rel="stylesheet" href="styles/responsive.css" />
-    <link rel="stylesheet" href="styles/fonts.css" />
-    <link rel="stylesheet" href="styles/standard.css" />
+    <link rel="stylesheet" href="./styles/assets.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/standard.css" />
     <script src="script.js"></script>
-    <script src="scripts/db.js"></script>
-    <script src="scripts/template.js"></script>
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/template.js"></script>
     <link
       rel="icon"
       type="image.png"
-      href="styles/assets/icons/favicon-32x32.png"
+      href="./assets/favicon/favicon-32x32.png"
     />
   </head>
-  <body id="body" onload="init()">
+  <body id="body" onload="init()" cz-shortcut-listen="true">
     <header>
       <img class="header-logo" src="styles/assets/icons/Logo.png" alt="Logo" />
     </header>
@@ -26,9 +26,202 @@
       <div id="overlay" class="overlay d-none"></div>
       <div class="overlay d-none" id="basket-overlay"></div>
       <section class="full-content">
-        <div id="main-content"></div>
-        <div id="menu-content"></div>
-      </section>
+        <div id="main-content">
+          <div>
+            <img
+              class="banner-img"
+              src="styles/assets/img/banner.jpg"
+              alt="Banner"
+            />
+            <div class="center-logo">
+              <img
+                class="center-logo-img"
+                src="styles/assets/icons/center-logo.png"
+                alt="Logo"
+              />
+            </div>
+            <h1>Giovanni's Pizza</h1>
+            <div class="restaurant-info">
+              <div class="rating">
+                <img
+                  class="star-icon"
+                  src="styles/assets/icons/star-4-xxl.png"
+                  alt=""
+                />
+                <span class="text-orange">(4.8/5.0)</span>
+              </div>
+              <div class="delivery-info">
+                <div class="delivery-min">
+                  <img
+                    class="bag-icon"
+                    src="styles/assets/icons/bag-icon.png"
+                    alt=""
+                  />
+                  <span>min. 12.00 €</span>
+                </div>
+                <div class="delivery-fee">
+                  <img
+                    class="delivery-icon"
+                    src="styles/assets/icons/bike-icon.png"
+                    alt=""
+                  />
+                  <span>2.00 €</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-selector">
+            <img src="styles/assets/icons/arrow-34-32.png" alt="Arrow" />
+            <a target="" href="#menu-content">Hauptgerichte</a>
+            <a onclick="comingSoon()" class="text-margin-left-16 pointer"
+              >Beilagen</a
+            >
+          </div>
 
+          <div id="coming-soon" class="alert-coming-soon d-none">
+            Beilagen sind bald verfügbar!
+          </div>
+
+          <div class="main-dishes">
+            <img src="styles/assets/img/main-dish.jpg" alt="Main Dish" />
+            <h2 class="text-margin-left-16">Hauptgerichte</h2>
+          </div>
+        </div>
+        <div id="menu-content">
+          <div class="dishes-wrapper">
+            <div class="dish-card">
+              <div class="dish-text">
+                <h2 class="dish-name">Pizza Margherita</h2>
+                <p class="dish-description">mit Mozzarella</p>
+                <p class="dish-price">8.50 €</p>
+              </div>
+              <div class="dish-imgs-container">
+                <img
+                  class="dish-img"
+                  src="styles/assets/img/margherita.jpg"
+                  alt="Pizza"
+                />
+                <img
+                  onclick="addToBasket(0)"
+                  class="add-to-basket-img"
+                  src="styles/assets/icons/orange-plus.png"
+                  alt="Plus"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="dishes-wrapper">
+            <div class="dish-card">
+              <div class="dish-text">
+                <h2 class="dish-name">Pizza Diavolo (scharf)</h2>
+                <p class="dish-description">
+                  mit Salami, Zwiebeln und Knoblauch
+                </p>
+                <p class="dish-price">10.50 €</p>
+              </div>
+              <div class="dish-imgs-container">
+                <img
+                  class="dish-img"
+                  src="styles/assets/img/diavolo.jpg"
+                  alt="Pizza"
+                />
+                <img
+                  onclick="addToBasket(1)"
+                  class="add-to-basket-img"
+                  src="styles/assets/icons/orange-plus.png"
+                  alt="Plus"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="dishes-wrapper">
+            <div class="dish-card">
+              <div class="dish-text">
+                <h2 class="dish-name">Pizza Salami</h2>
+                <p class="dish-description">mit Salami und Mais</p>
+                <p class="dish-price">11.00 €</p>
+              </div>
+              <div class="dish-imgs-container">
+                <img
+                  class="dish-img"
+                  src="styles/assets/img/salami.jpg"
+                  alt="Pizza"
+                />
+                <img
+                  onclick="addToBasket(2)"
+                  class="add-to-basket-img"
+                  src="styles/assets/icons/orange-plus.png"
+                  alt="Plus"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="dishes-wrapper">
+            <div class="dish-card">
+              <div class="dish-text">
+                <h2 class="dish-name">Pizza Prosciutto</h2>
+                <p class="dish-description">mit Schinken</p>
+                <p class="dish-price">12.50 €</p>
+              </div>
+              <div class="dish-imgs-container">
+                <img
+                  class="dish-img"
+                  src="styles/assets/img/prosciutto.jpg"
+                  alt="Pizza"
+                />
+                <img
+                  onclick="addToBasket(3)"
+                  class="add-to-basket-img"
+                  src="styles/assets/icons/orange-plus.png"
+                  alt="Plus"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="basket" class="basket">
+        <div id="basket-content" class="basket-content">
+          <div class="close-btn">
+            <img
+              onclick="hideBasket()"
+              src="styles/assets/icons/x-circle.png"
+              alt="Close"
+            />
+          </div>
+          <div class="basket-icon">
+            <img src="styles/assets/icons/basket-icon.png" alt="Basket" />
+          </div>
+          <h2>Warenkorb</h2>
+          <ul id="basket-item-wrapper">
+            <li id="basket-item">
+              <div
+                class="empty-basket-text"
+                id="empty-basket-text"
+                style="display: block"
+              >
+                Dein Warenkorb ist leer... <br />Such dir was leckeres aus!
+              </div>
+            </li>
+          </ul>
+          <div id="total-sum" class="total-sum"></div>
+        </div>
+      </section>
+      <div
+        class="mobile-shopping-cart"
+        id="show-basket-button"
+        onclick="showBasket()"
+      >
+        <div class="complete-order-button-resp">
+          <a>Zum Warenkorb</a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <b class="text-orange">Made by Developer Akademie</b>
+    </footer>
   </body>
 </html>
