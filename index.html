@@ -1,23 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>bestellapp</title>
+    <title>Bestellapp</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/assets.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <link rel="stylesheet" href="styles/fonts.css" />
+    <link rel="stylesheet" href="styles/standard.css" />
+    <script src="script.js"></script>
+    <script src="scripts/db.js"></script>
+    <script src="scripts/template.js"></script>
+    <link
+      rel="icon"
+      type="image.png"
+      href="styles/assets/icons/favicon-32x32.png"
+    />
   </head>
-  <body>
-      <header>
-    Bestellapp
-  </header>
-  <div>
-    <h1>
-      Lieferando
-    </h1>
-  </div>
-  
-  <div class="basket">
-    <span>basket</span>
-    
-  </div>
+  <body id="body" onload="init()">
+    <header>
+      <img class="header-logo" src="styles/assets/icons/Logo.png" alt="Logo" />
+    </header>
+    <main>
+      <div id="overlay" class="overlay d-none"></div>
+      <div class="overlay d-none" id="basket-overlay"></div>
+      <section class="full-content">
+        <div id="main-content"></div>
+        <div id="menu-content"></div>
+      </section>
+      <section id="basket" class="basket"></section>
+      <div
+        class="mobile-shopping-cart"
+        id="show-basket-button"
+        onclick="showBasket()"
+      >
+        <div class="complete-order-button-resp">
+          <a>Zum Warenkorb</a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <b class="text-orange">Made by Matthias</b>
+    </footer>
   </body>
 </html>
