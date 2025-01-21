@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: yellow;
+  
+}
+
+.basket {
+  display: flex;
+  justify-content: flex-end;
+  text-align: flex-top;
+  font-size: 45px;
+
+}
