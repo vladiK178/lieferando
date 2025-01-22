@@ -1,0 +1,40 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-orange {
+  color: #ff8000;
+}
+
+.text-margin-left-16 {
+  margin-left: 16px;
+}
+
+.text-margin-bottom-16 {
+  margin-bottom: 16px;
+}
+
+.d-none {
+  display: none;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.basket-width-on-overlay {
+  width: 290px;
+}
+
+.pointer {
+  cursor: pointer;
+}
