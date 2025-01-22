@@ -1,380 +1,398 @@
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 60px;
-    background-color: #e07f00;
-  }
-  
-  main {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    max-width: 100%;
-  }
-  
-  .full-content {
-    width: calc(100% - 280px);
-    margin-bottom: 66px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    font-weight: 780;
-    margin-top: 16px;
-    margin-left: 16px;
-    margin-bottom: 8px;
-  }
-  
-  .center-logo {
-    height: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .restaurant-info {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 24px;
-    margin-left: 16px;
-    gap: 16px;
-  }
-  
-  .rating {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    font-weight: bold;
-  }
-  
-  .delivery-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-    font-weight: bold;
-  }
-  
-  .delivery-min {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .delivery-fee {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .menu-selector {
-    display: flex;
-    align-items: center;
-    background-color: rgb(245, 245, 245);
-    padding: 4px 0;
-  }
-  
-  .alert-coming-soon {
-    color: #ff9900;
-    font-weight: bold;
-    margin-left: 16px;
-    margin-top: 12px;
-  }
-  
-  .menu-selector a {
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-  }
-  
-  .menu-selector a:hover {
-    color: #e07f00;
-  }
-  
-  .main-dishes {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 16px 0;
-  }
-  
-  h2 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 28px;
-  }
-  
-  .basket {
-    width: 280px;
-    flex-grow: 1;
-    padding: 16px;
-    border-left: 3px solid #e07f00;
-  }
-  
-  .basket-content {
-    width: 280px;
-    height: 400px;
-    position: sticky;
-    top: 18px;
-  }
-  
-  .basket-content ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .basket-content ul li {
-    margin: 18px 0;
-  }
-  
-  .basket-content h2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    font-size: 26px;
-    border-bottom: 2px solid #ebebeb;
-    padding-bottom: 12px;
-  }
-  
-  .basket-item-text {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 34px;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #ebebeb;
-  }
-  
-  .empty-basket-text {
-    text-align: center;
-    color: rgba(0, 0, 0, 0.35);
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .basket-amount {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100px;
-  }
-  
-  .amount {
-    display: flex;
-    align-items: center;
-  }
-  
-  .change-amount {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20px;
-    width: 20px;
-  }
-  
-  .price {
-    display: flex;
-    align-items: center;
-  }
-  
-  .trash-container {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .current-order-sum {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .delivery-fee-status {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .divider {
-    width: 100%;
-    height: 2px;
-    background-color: #ebebeb;
-    margin: 8px 0;
-  }
-  
-  .order-sum {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .complete-order-button {
-    padding: 12px;
-    margin: 20px 0;
-    border-radius: 24px;
-    text-align: center;
-    background-color: #e07f00;
-    color: white;
-    font-weight: bold;
-    transition: ease-in-out 0.1s;
-  }
-  
-  .complete-order-button:hover {
-    background-color: #c06f04;
-    cursor: pointer;
-  }
-  
-  .dishes-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .dish-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 16px;
-    padding: 24px;
-    gap: 30px;
-    border: 1px solid #0000002c;
-    border-radius: 16px;
-  }
-  
-  .dish-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin-left: 16px;
-  }
-  
-  .dish-imgs-container {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .dish-name {
-    margin-top: 0;
-    font-size: 22px;
-  }
-  
-  .dish-description {
-    margin-top: 18px;
-  }
-  
-  .dish-price {
-    margin-top: 18px;
-    font-weight: bold;
-  }
-  
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 60px;
-    background-color: #272626;
-    color: white;
-  }
-  
-  .overlay {
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.375);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
-  
-  .overlay-box {
-    background-color: #ffffff;
-    box-shadow: 0px 0px 20px 0px rgb(0, 0, 0, 1);
-    position: sticky;
-    top: 0;
-    height: 45vh;
-    width: 50vw;
-    border-radius: 10px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  
-  .mobile-shopping-cart {
-    display: none;
-    width: 70%;
-    margin: 0 auto;
-    background-color: #e07f00;
-    border-radius: 36px;
-  }
-  
-  .complete-order-button-resp {
-    color: white;
-    font-weight: bold;
-    padding: 22px;
-    text-align: center;
-  }
-  
-  .mobile-shopping-cart:hover {
-    background-color: #c06f04;
-    cursor: pointer;
-  }
-  
-  .close-btn {
-    display: none;
-  }
-  
-  .thanks-for-order {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    gap: 50px;
-  }
-  
-  .thanks-for-order h2 {
-    font-size: 32px;
-    margin-bottom: 24px;
-    margin-top: 0;
-    text-align: center;
-  }
-  
-  .thanks-for-order p {
-    font-size: 20px;
-    text-align: center;
-  }
-  
-  .thanks-for-order a {
-    background-color: #e07f00;
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-    padding: 12px;
-    border-radius: 24px;
-  }
-  
-  .thanks-for-order a:hover {
-    background-color: #c06f04;
-    cursor: pointer;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  background-color: #ff8000;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.full-content {
+  width: calc(100% - 280px);
+  margin-bottom: 66px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 780;
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
+
+.center-logo {
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.restaurant-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 24px;
+  margin-left: 16px;
+  gap: 16px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.delivery-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  font-weight: bold;
+}
+
+.delivery-min {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.delivery-fee {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-selector {
+  display: flex;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  padding: 4px 0;
+}
+
+.alert-coming-soon {
+  color: #ff8000;
+  font-weight: bold;
+  margin-left: 16px;
+  margin-top: 12px;
+}
+
+.menu-selector a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.menu-selector a:hover {
+  color: #ff8000;
+}
+
+.main-dishes {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 16px 0;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 28px;
+}
+
+.basket {
+  width: 280px;
+  flex-grow: 1;
+  padding: 16px;
+  border-left: 3px solid #ff8000;
+}
+
+.basket-content {
+  width: 280px;
+  height: 400px;
+  position: sticky;
+  top: 18px;
+}
+
+.basket-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+.basket-content ul li {
+  margin: 18px 0;
+}
+
+.basket-content h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 26px;
+  border-bottom: 2px solid #ebebeb;
+  padding-bottom: 12px;
+}
+
+.basket-item-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 34px;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.empty-basket-text {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.35);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.basket-amount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+}
+
+.change-amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.trash-container {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-order-sum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.delivery-fee-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: #ebebeb;
+  margin: 8px 0;
+}
+
+.order-sum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.complete-order-button {
+  padding: 12px;
+  margin: 20px 0;
+  border-radius: 24px;
+  text-align: center;
+  background-color: #ff8000;
+  color: white;
+  font-weight: bold;
+  transition: ease-in-out 0.1s;
+}
+
+.complete-order-button:hover {
+  background-color: #ff8000;
+  cursor: pointer;
+}
+
+.dishes-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 16px;
+  padding: 24px;
+  gap: 30px;
+  border: 1px solid #0000002c;
+  border-radius: 16px;
+}
+
+.dish-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 16px;
+}
+
+.dish-imgs-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.dish-name {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.dish-description {
+  margin-top: 18px;
+}
+
+.dish-price {
+  margin-top: 18px;
+  font-weight: bold;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background-color: #272626;
+  color: white;
+}
+
+.overlay {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.375);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.overlay-box {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 20px 0px rgb(0, 0, 0, 1);
+  position: sticky;
+  top: 0;
+  height: 45vh;
+  width: 50vw;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.mobile-shopping-cart {
+  display: none;
+  width: 70%;
+  margin: 0 auto;
+  background-color: #ff8000;
+  border-radius: 36px;
+}
+
+.complete-order-button-resp {
+  color: white;
+  font-weight: bold;
+  padding: 22px;
+  text-align: center;
+}
+
+.mobile-shopping-cart:hover {
+  background-color: #ff8000;
+  cursor: pointer;
+}
+
+.close-btn {
+  display: none;
+}
+
+.thanks-for-order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 50px;
+}
+
+.thanks-for-order h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.thanks-for-order p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.thanks-for-order a {
+  background-color: #ff8000;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  padding: 12px;
+  border-radius: 24px;
+}
+
+.thanks-for-order a:hover {
+  background-color: #ff8000;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff8000;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cc6600;
+}
