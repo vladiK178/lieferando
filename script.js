@@ -197,9 +197,7 @@ function disableScrolling() {
   body.classList.toggle("position-fixed");
 }
 
-function stopPropagation(event) {
-  event.stopPropagation();
-}
+
 
 function sendOrder() {
   let totalSumRef = document.getElementById("total-order-sum").innerText;
