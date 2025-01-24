@@ -132,6 +132,30 @@ function handleSumTasks() {
   calculateTotalSum();
 }
 
+function sendOrder() {
+  let totalSumRef = document.getElementById("total-order-sum").innerText;
+  let basketContentRef = document.getElementById("basket-item");
+  let myFinishOrderSectionRef = document.getElementById("total-sum");
+
+  if (totalSumRef <= 10) {
+    alert("Mindestbestellwert noch nicht erreicht, gönn dir doch noch etwas!");
+  } else {
+    clearBasketAndSendOrder(basketContentRef, myFinishOrderSectionRef);
+  }
+}
+
+function clearBasketAndSendOrder(basketContentRef, myFinishOrderSectionRef) {
+  basketContentRef.innerHTML = "";
+  myFinishOrderSectionRef.innerHTML = "";
+
+  for (let i = 0; i < basket.length; i++) {
+    delete basket[i];
+  }
+  toggleOverlay();
+  hideBasket();
+  toggleBasketButton();
+}
+
 function calculateCurrentSum() {
   let currentSumRef = document.getElementById("current-order-sum");
   let currentSum = 0;
