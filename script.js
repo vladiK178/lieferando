@@ -1,3 +1,5 @@
+let basket = [];
+
 function init() {
   render();
   renderMenu();
@@ -17,7 +19,44 @@ function renderMenu() {
   }
 }
 
-let basket = [];
+function handleSumTasks() {
+  calculateCurrentSum();
+  calculateTotalSum();
+}
+
+function calculateCurrentSum() {
+  let currentSumRef = document.getElementById("current-order-sum");
+  let currentSum = 0;
+
+  if (basket.length > 0) {
+    currentSumRef.innerHTML = "";
+    for (let i = 0; i < basket.length; i++) {
+      currentSum += basket[i].price;
+    }
+    currentSumRef.innerHTML = currentSum.toFixed(2) + " €";
+    return currentSum;
+  }
+}
+
+function calculateTotalSum() {
+  let totalSumRef = document.getElementById("total-order-sum");
+  let totalSum = 0;
+
+  if (basket.length > 0) {
+    totalSumRef.innerHTML = "";
+    for (let i = 0; i < basket.length; i++) {
+      totalSum += basket[i].price;
+    }
+    totalSum += 2; // Lieferkosten
+    totalSumRef.innerHTML = totalSum.toFixed(2) + " €";
+    return totalSum;
+  }
+}
+
+function updateBasketAndSums() {
+  updateBasketView();
+  handleSumTasks();
+}
 
 function addToBasket(i) {
   let dishNameRef = myDishes[i].name;
