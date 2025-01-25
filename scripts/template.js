@@ -97,32 +97,33 @@ function getEmptyBasketTemplate() {
 
 function getBasketItemTemplate(i) {
   return `
-                  <b>${basket[i].name}</b>
-                  <div class="basket-item-text">
-                    <div class="basket-amount">
-                      <div class="change-amount">
-                        <img onclick="itemReduceRemoveFromBasket(${i})" 
-                          src="./assets/icons/minus-icon.png"
-                          alt="Minus"
-                        />
-                      </div>
-                      <p class="amount" id="amount">${basket[i].amount}x</p>
-                      <div class="change-amount">
-                        <img onclick="addAmountInBasket(${i})" src="./assets/icons/plus-icon.png" alt="Plus" />
-                      </div>
-                    </div>
-                    <div class="price" id="price">${basket[i].price.toFixed(
-                      2
-                    )} €</div>
-                    <div class="trash-container">
-                      <img onclick="deleteItemFromBasket(${i})"
-                        class="trash-icon"
-                        src="./assets/icons/trash.png"
-                        alt="delete"
-                      />
-                    </div>
-                  </div>
-    `;
+    <b>${basket[i].name}</b>
+    <div class="basket-item-text">
+      <div class="basket-amount">
+        <div class="change-amount">
+          <img onclick="itemReduceRemoveFromBasket(${basket[i].id})" 
+            src="./assets/icons/minus-icon.png"
+            alt="Minus"
+          />
+        </div>
+        <p class="amount" id="amount">${basket[i].amount}x</p>
+        <div class="change-amount">
+          <img onclick="addAmountInBasket(${basket[i].id})" 
+            src="./assets/icons/plus-icon.png"
+            alt="Plus"
+          />
+        </div>
+      </div>
+      <div class="price" id="price">${basket[i].price.toFixed(2)} €</div>
+      <div class="trash-container">
+        <img onclick="deleteItemFromBasket(${i})"
+          class="trash-icon"
+          src="./assets/icons/trash.png"
+          alt="delete"
+        />
+      </div>
+    </div>
+  `;
 }
 
 function getMenuTemplate(i) {
@@ -165,4 +166,16 @@ function getDialogCon() {
           </div>
     </div>
     `;
+}
+
+function getMobileBasketTemplate() {
+  let totalSum = calculateTotalSum();
+
+  return `
+    <div class="mobile-shopping-cart" id="show-basket-button" onclick="showBasket()">
+      <div class="complete-order-button-resp">
+        <span>Summe: ${totalSum.toFixed(2)} €</span>
+      </div>
+    </div>
+  `;
 }
