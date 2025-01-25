@@ -59,22 +59,21 @@ function updateBasketAndSums() {
 }
 
 function addToBasket(i) {
-  let dishNameRef = myDishes[i].name;
-  let dishPriceRef = myDishes[i].price;
-  let itemInBasket = basket.find((item) => item.name === dishNameRef);
+  let dish = myDishes[i];
 
+  let itemInBasket = basket.find((item) => item.id === dish.id);
   if (itemInBasket) {
-    itemInBasket.amount += 1;
-    itemInBasket.price = myDishes[i].price * itemInBasket.amount;
+    itemInBasket.amount++;
+    itemInBasket.price = dish.price * itemInBasket.amount;
   } else {
     basket.push({
-      name: dishNameRef,
-      price: dishPriceRef,
+      id: dish.id,
+      name: dish.name,
+      price: dish.price,
       amount: 1,
     });
   }
-  updateBasketView();
-  handleSumTasks();
+  updateBasketAndSums();
 }
 
 function updateBasketView() {
@@ -93,96 +92,45 @@ function updateBasketView() {
   } else {
     totalSum.innerHTML += getTotalSumTemplate();
   }
+
+  let mobileBasketRef = document.getElementById("mobile-basket");
+  mobileBasketRef.innerHTML = getMobileBasketTemplate();
 }
 
-function itemReduceRemoveFromBasket(i) {
-  let dishNameRef = myDishes[i].name;
-  let itemInBasket = basket.find((item) => item.name === dishNameRef);
+function itemReduceRemoveFromBasket(productId) {
+  let itemIndex = basket.findIndex((item) => item.id === productId);
 
-  if (basket[i].amount > 1) {
-    basket[i].amount -= 1;
-    itemInBasket.price = myDishes[i].price * basket[i].amount;
-  } else {
-    basket.splice(i, 1);
-  }
-  updateBasketView();
-  handleSumTasks();
-}
+  if (itemIndex !== -1) {
+    let itemInBasket = basket[itemIndex];
 
-function deleteItemFromBasket(i) {
-  basket.splice(i, 1);
-  updateBasketView();
-  handleSumTasks();
-}
-
-function addAmountInBasket(i) {
-  let dishNameRef = myDishes[i].name;
-  let itemInBasket = basket.find((item) => item.name === dishNameRef);
-
-  if (basket[i].amount >= 1) {
-    itemInBasket.amount += 1;
-    itemInBasket.price = myDishes[i].price * basket[i].amount;
-  }
-  updateBasketView();
-  handleSumTasks();
-}
-
-function handleSumTasks() {
-  calculateCurrentSum();
-  calculateTotalSum();
-}
-
-function sendOrder() {
-  let totalSumRef = document.getElementById("total-order-sum").innerText;
-  let basketContentRef = document.getElementById("basket-item");
-  let myFinishOrderSectionRef = document.getElementById("total-sum");
-
-  if (totalSumRef <= 10) {
-    alert("Mindestbestellwert noch nicht erreicht, gönn dir doch noch etwas!");
-  } else {
-    clearBasketAndSendOrder(basketContentRef, myFinishOrderSectionRef);
-  }
-}
-
-function clearBasketAndSendOrder(basketContentRef, myFinishOrderSectionRef) {
-  basketContentRef.innerHTML = "";
-  myFinishOrderSectionRef.innerHTML = "";
-
-  for (let i = 0; i < basket.length; i++) {
-    delete basket[i];
-  }
-  toggleOverlay();
-  hideBasket();
-  toggleBasketButton();
-}
-
-function calculateCurrentSum() {
-  let currentSumRef = document.getElementById("current-order-sum");
-  let currentSum = 0;
-
-  if (basket.length > 0) {
-    currentSumRef.innerHTML = "";
-    for (let i = 0; i < basket.length; i++) {
-      currentSum += basket[i].price;
+    if (itemInBasket.amount > 1) {
+      itemInBasket.amount--;
+      itemInBasket.price =
+        myDishes.find((dish) => dish.id === productId).price *
+        itemInBasket.amount;
+    } else {
+      basket.splice(itemIndex, 1);
     }
-    currentSumRef.innerHTML = currentSum.toFixed(2) + " €";
-    return currentSum;
+
+    updateBasketAndSums();
   }
 }
 
-function calculateTotalSum() {
-  let totalSumRef = document.getElementById("total-order-sum");
-  let totalSum = 0;
-
-  if (basket.length > 0) {
-    totalSumRef.innerHTML = "";
-    for (let i = 0; i < basket.length; i++) {
-      totalSum += basket[i].price;
-    }
-    totalSum += 2;
-    totalSumRef.innerHTML = totalSum.toFixed(2) + " €";
-    return totalSum;
+function deleteItemFromBasket(index) {
+  if (index >= 0 && index < basket.length) {
+    basket.splice(index, 1);
+    updateBasketAndSums();
   }
+}
+
+function addAmountInBasket(id) {
+  let itemInBasket = basket.find((item) => item.id === id);
+  if (itemInBasket) {
+    itemInBasket.amount++;
+    itemInBasket.price =
+      myDishes.find((dish) => dish.id === id).price * itemInBasket.amount;
+  }
+  updateBasketAndSums();
 }
 
 function toggleOverlay() {
@@ -197,7 +145,9 @@ function disableScrolling() {
   body.classList.toggle("position-fixed");
 }
 
-
+function stopPropagation(event) {
+  event.stopPropagation();
+}
 
 function sendOrder() {
   let totalSumRef = document.getElementById("total-order-sum").innerText;
