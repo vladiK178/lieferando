@@ -290,6 +290,7 @@ footer {
   height: 60px;
   background-color: #272626;
   color: white;
+  margin-top: auto;
 }
 
 .overlay {
@@ -321,7 +322,7 @@ footer {
 
 .mobile-shopping-cart {
   display: none;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   background-color: #ff8000;
   border-radius: 36px;
